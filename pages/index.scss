@@ -1,0 +1,59 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 64px;
+  text-align: center;
+
+  @include tablet {
+    padding: 32px;
+  }
+
+  @include mobile {
+    padding: 24px;
+  }
+}
+
+.img {
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 24px;
+}
+
+.link {
+  margin-bottom: 24px;
+  color: $color-success;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.langs {
+  display: flex;
+  align-items: center;
+}
+
+.lang {
+  margin: 6px;
+  background-color: $color-secondary;
+  color: #fff;
+  cursor: pointer;
+}
+
+.langActive {
+  composes: lang;
+  background-color: $color-primary;
+}

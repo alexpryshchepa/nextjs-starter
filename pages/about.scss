@@ -1,0 +1,44 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 64px;
+
+  @include tablet {
+    padding: 32px;
+  }
+
+  @include mobile {
+    padding: 24px;
+  }
+}
+
+.link {
+  text-align: center;
+  margin-bottom: 24px;
+  color: $color-success;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.docs {
+  max-width: 100%;
+
+  :global {
+    @import '~github-markdown-css';
+  }
+}
+
+.error {
+  color: $color-error;
+}

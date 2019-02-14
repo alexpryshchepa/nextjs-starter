@@ -1,0 +1,23 @@
+$mobile-width: 768px;
+$tablet-width: 1024px;
+
+$color-primary: #7b1fa2;
+$color-secondary: #2196f3;
+$color-success: #8bc34a;
+$color-error: #f44336;
+
+$font-family-base: 'Roboto', 'Helvetica', 'Georgia', sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+$z-index-nprogress: 10;
+
+// Export allows you to share variables between css and js
+:export {
+  // stylelint-disable
+  color-primary: $color-primary;
+  color-secondary: $color-secondary;
+  color-success: $color-success;
+  color-error: $color-error;
+}

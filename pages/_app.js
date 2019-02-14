@@ -1,0 +1,47 @@
+import '@babel/polyfill';
+import React from 'react';
+import App, { Container } from 'next/app';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+import { appWithTranslation } from 'core/i18n';
+import withReduxStore from 'core/withReduxStore';
+import { compose } from 'redux';
+import { Provider } from 'react-redux';
+import Page from 'components/Page';
+
+Router.events.on('routeChangeStart', () => {
+  NProgress.start();
+});
+
+Router.events.on('routeChangeComplete', () => {
+  // Dirty fix to update styles on page changes
+  // Should be fixed in future versions of next.js
+  if (process.env.NODE_ENV !== 'production') {
+    const links = document.querySelectorAll('link[href*="/_next/static/css/styles.chunk.css"]');
+    const timestamp = new Date().valueOf();
+    links[0].href = `/_next/static/css/styles.chunk.css?v=${timestamp}`;
+  }
+
+  NProgress.done();
+});
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps, reduxStore } = this.props;
+
+    return (
+      <Container>
+        <Provider store={reduxStore}>
+          <Page>
+            <Component {...pageProps} />
+          </Page>
+        </Provider>
+      </Container>
+    );
+  }
+}
+
+export default compose(
+  withReduxStore,
+  appWithTranslation,
+)(MyApp);

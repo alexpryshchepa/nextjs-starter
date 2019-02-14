@@ -1,0 +1,7 @@
+{
+  "title": "Welcome to NextJS starter",
+  "text": "React, Redux, CSS Modules, server side rendering with NextJS and I18n on board",
+  "link": "Check out README.md",
+  "error-with-status": "A {{ statusCode }} error occurred on server",
+  "error-without-status": "An error occurred on the server"
+}

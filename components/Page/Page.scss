@@ -1,0 +1,56 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+:global {
+  @import '~reset-css';
+  @import '~nprogress/nprogress.css';
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: $font-family-base;
+  }
+
+  input,
+  textarea,
+  button,
+  select {
+    font-family: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: $font-weight-bold;
+  }
+
+  i,
+  em {
+    font-style: italic;
+  }
+
+  // NProgress bar styles, DOM element appends dynamically
+  #nprogress {
+    position: fixed;
+    z-index: $z-index-nprogress;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    .bar {
+      height: 4px;
+      background-color: $color-primary;
+
+      .peg {
+        display: none;
+      }
+    }
+  }
+}
