@@ -1,4 +1,4 @@
-import { GET_README_SUCCESS, GET_README_ERROR } from '../constants';
+import { GET_README_SUCCESS, GET_README_ERROR } from 'client/constants';
 
 const initialState = {
   loaded: false,

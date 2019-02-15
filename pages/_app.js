@@ -3,11 +3,11 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import { appWithTranslation } from 'core/i18n';
-import withReduxStore from 'core/withReduxStore';
 import { compose } from 'redux';
 import { Provider } from 'react-redux';
-import Page from 'components/Page';
+import withReduxStore from 'client/core/withReduxStore';
+import { appWithTranslation } from 'i18n';
+import Page from 'client/components/Page';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();

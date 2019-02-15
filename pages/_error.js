@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withNamespaces } from 'core/i18n';
+import { withNamespaces } from 'i18n';
 
 class Error extends Component {
   static getInitialProps({ res, err }) {

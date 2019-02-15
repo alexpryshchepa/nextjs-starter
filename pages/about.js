@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import fetchDocs from 'actions/docs';
-import { withNamespaces, Link } from 'core/i18n';
-import Loader from 'components/Loader';
-import s from './about.scss';
+import fetchDocs from 'client/actions/docs';
+import About from 'client/pages/About';
 
-class About extends Component {
+class AboutPage extends Component {
   static async getInitialProps() {
     return {
       namespacesRequired: ['about'],
@@ -15,63 +12,29 @@ class About extends Component {
   }
 
   static propTypes = {
-    t: PropTypes.func.isRequired,
+    isDocs: PropTypes.bool.isRequired,
     fetchDocsAction: PropTypes.func.isRequired,
-    docs: PropTypes.shape({
-      loaded: PropTypes.bool,
-      error: PropTypes.bool,
-      data: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.instanceOf(null),
-      ]),
-    }).isRequired,
   };
 
   componentDidMount() {
-    const { docs, fetchDocsAction } = this.props;
+    const { isDocs, fetchDocsAction } = this.props;
 
-    if (!docs.loaded) {
+    if (!isDocs) {
       fetchDocsAction();
     }
   }
 
-  renderDocs = () => {
-    const { t, docs } = this.props;
-
-    if (docs.loaded) {
-      return <div dangerouslySetInnerHTML={{ __html: docs.data }} />;
-    } if (docs.error) {
-      return <span className={s.error}>{t('error')}</span>;
-    }
-    return <Loader />;
-  }
-
   render() {
-    const { t } = this.props;
-
-    return (
-      <div className={s.root}>
-        <Link prefetch href="/">
-          <a className={s.link}>{t('link')}</a>
-        </Link>
-        <h1 className={s.title}>{t('title')}</h1>
-        <div className={s.docs}>
-          {this.renderDocs()}
-        </div>
-      </div>
-    );
+    return <About />;
   }
 }
 
 const mapState = state => ({
-  docs: state.docs,
+  isDocs: state.docs.loaded,
 });
 
 const mapDispatch = {
   fetchDocsAction: fetchDocs,
 };
 
-export default compose(
-  connect(mapState, mapDispatch),
-  withNamespaces('about'),
-)(About);
+export default connect(mapState, mapDispatch)(AboutPage);

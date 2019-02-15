@@ -1,52 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {
-  config, i18n, withNamespaces, Link,
-} from 'core/i18n';
-import s from './index.scss';
+import React from 'react';
+import Home from 'client/pages/Home';
 
-class Index extends Component {
-  static async getInitialProps() {
-    return {
-      namespacesRequired: ['common'],
-    };
-  }
+const HomePage = () => <Home />;
 
-  static propTypes = {
-    t: PropTypes.func.isRequired,
-  };
+HomePage.getInitialProps = async () => ({
+  namespacesRequired: ['about'],
+});
 
-  render() {
-    const { t } = this.props;
-
-    return (
-      <div className={s.root}>
-        <img className={s.img} src="/static/img/nextjs.png" alt="Tech Stack" />
-        <h1 className={s.title}>{t('title')}</h1>
-        <Link prefetch href="/about">
-          <a className={s.link}>{t('link')}</a>
-        </Link>
-        <p className={s.text}>{t('text')}</p>
-        <ul className={s.langs}>
-          {[config.defaultLanguage, ...config.otherLanguages].map((lang) => {
-            const text = lang.substr(0, 1).toUpperCase() + lang.substr(1, lang.length - 1);
-
-            return (
-              <li key={lang}>
-                <button
-                  className={i18n.language === lang ? s.langActive : s.lang}
-                  type="button"
-                  onClick={() => i18n.changeLanguage(lang)}
-                >
-                  {text}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
-
-export default withNamespaces('common')(Index);
+export default HomePage;

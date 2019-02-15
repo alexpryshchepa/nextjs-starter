@@ -17,6 +17,7 @@
     "fix-js": "yarn run lint-js --fix",
     "fix-css": "yarn run lint-css --fix",
     "fix": "yarn run fix-js && yarn run fix-css",
+    "test": "yarn run cypress open",
     "dev": "node server",
     "build": "next build",
     "start": "cross-env NODE_ENV=production node server"
@@ -28,7 +29,7 @@
     "github-markdown-css": "^3.0.1",
     "lodash": "^4.17.11",
     "next": "^7.0.2",
-    "next-i18next": "^0.27.0",
+    "next-i18next": "^0.32.0",
     "node-sass": "^4.11.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.6.2",
@@ -43,6 +44,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
+    "cypress": "^3.1.5",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-css-modules": "^2.11.0",
