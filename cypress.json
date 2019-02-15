@@ -2,5 +2,5 @@
   "port": 4000,
   "baseUrl": "http://localhost:3000",
   "integrationFolder": "./",
-  "testFiles": "client/**/*.spec.js"
+  "testFiles": "client/**/*.cypr.js"
 }
