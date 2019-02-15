@@ -21,6 +21,7 @@ class MyDocument extends Document {
           />
           <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" />
+          <link rel="shortcut icon" href="static/favicon.png" type="image/png" />
         </Head>
         <body>
           <Main />
