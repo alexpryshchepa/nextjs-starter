@@ -5,7 +5,7 @@ import {
 } from 'i18n';
 import s from './Home.scss';
 
-const Home = ({ t }) => (
+export const Home = ({ t }) => (
   <div className={s.root}>
     <img className={s.img} src="/static/img/nextjs.png" alt="Tech Stack" />
     <h1 className={s.title}>{t('title')}</h1>

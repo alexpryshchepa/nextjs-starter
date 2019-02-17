@@ -6,7 +6,7 @@ import { withNamespaces, Link } from 'i18n';
 import Loader from 'client/components/Loader';
 import s from './About.scss';
 
-const About = ({ t, docs }) => {
+export const About = ({ t, docs }) => {
   const renderDocs = () => {
     if (docs.loaded) {
       return <div dangerouslySetInnerHTML={{ __html: docs.data }} />;
