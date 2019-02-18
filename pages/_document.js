@@ -3,6 +3,7 @@
 
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
+import { i18n } from 'i18n';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -13,7 +14,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <html lang="en">
+      <html lang={i18n.language}>
         <Head>
           <meta
             name="viewport"
