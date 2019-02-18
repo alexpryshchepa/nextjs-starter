@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About page component Checks snapshot matching 1`] = `ShallowWrapper {}`;
-
 exports[`about page component user interface checks snapshot matching 1`] = `ShallowWrapper {}`;
