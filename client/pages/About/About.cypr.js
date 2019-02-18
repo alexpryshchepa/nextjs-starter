@@ -1,5 +1,5 @@
-describe('About page', function() {
-  it('Checks if url matches', function() {
+describe('About page', () => {
+  it('Checks if url matches', () => {
     cy.visit('/about');
 
     cy

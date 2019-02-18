@@ -10,13 +10,15 @@
 
   "plugins": [
     "react",
-    "css-modules"
+    "css-modules",
+    "cypress",
+    "jest"
   ],
 
-  "globals": {},
-
   "env": {
-    "browser": true
+    "browser": true,
+    "cypress/globals": true,
+    "jest/globals": true
   },
 
   "rules": {
@@ -72,7 +74,10 @@
 
     // Functional and class components are equivalent from React’s point of view
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    
+    // In case of named export for unit testing
+    "import/no-named-as-default": false
   },
 
   "settings": {

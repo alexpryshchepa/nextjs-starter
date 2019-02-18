@@ -1,3 +1,4 @@
 libs/
 _build/
 node_modules/
+cypress/

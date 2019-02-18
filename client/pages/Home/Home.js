@@ -20,6 +20,7 @@ export const Home = ({ t }) => (
         return (
           <li key={lang}>
             <button
+              // Issue with current lang during SSR https://github.com/isaachinman/next-i18next/issues/187
               className={i18n.language === lang ? s.langActive : s.lang}
               type="button"
               onClick={() => i18n.changeLanguage(lang)}
