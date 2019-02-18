@@ -8,9 +8,9 @@ import s from './About.scss';
 
 export const About = ({ t, docs }) => {
   const renderDocs = () => {
-    if (docs.loaded) {
+    if (docs.isLoaded) {
       return <div dangerouslySetInnerHTML={{ __html: docs.data }} />;
-    } if (docs.error) {
+    } if (docs.hasError) {
       return <span className={s.error}>{t('error')}</span>;
     }
 
@@ -37,8 +37,8 @@ export const About = ({ t, docs }) => {
 About.propTypes = {
   t: PropTypes.func.isRequired,
   docs: PropTypes.shape({
-    loaded: PropTypes.bool,
-    error: PropTypes.bool,
+    isLoaded: PropTypes.bool,
+    hasError: PropTypes.bool,
     data: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.instanceOf(null),

@@ -1,8 +1,8 @@
 import { GET_README_SUCCESS, GET_README_ERROR } from 'client/constants';
 
 const initialState = {
-  loaded: false,
-  error: false,
+  isLoaded: false,
+  hasError: false,
   data: null,
 };
 
@@ -11,8 +11,8 @@ export default function docs(state = initialState, action) {
     case GET_README_SUCCESS: {
       return {
         ...state,
-        loaded: true,
-        error: false,
+        isLoaded: true,
+        hasError: false,
         data: action.payload,
       };
     }
@@ -20,8 +20,8 @@ export default function docs(state = initialState, action) {
     case GET_README_ERROR: {
       return {
         ...state,
-        loaded: false,
-        error: true,
+        isLoaded: false,
+        hasError: true,
         data: null,
       };
     }

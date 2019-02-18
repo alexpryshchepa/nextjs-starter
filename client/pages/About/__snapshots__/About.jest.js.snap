@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`With Enzyme Checks title text and snapshot matching 1`] = `ShallowWrapper {}`;
+exports[`About page component Checks snapshot matching 1`] = `ShallowWrapper {}`;
+
+exports[`about page component user interface checks snapshot matching 1`] = `ShallowWrapper {}`;

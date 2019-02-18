@@ -30,7 +30,7 @@ class AboutPage extends Component {
 }
 
 const mapState = state => ({
-  isDocs: state.docs.loaded,
+  isDocs: state.docs.isLoaded,
 });
 
 const mapDispatch = {
