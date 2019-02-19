@@ -1,40 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react';
 import fetchDocs from 'client/actions/docs';
 import About from 'client/pages/About';
 
-class AboutPage extends Component {
-  static async getInitialProps() {
-    return {
-      namespacesRequired: ['about'],
-    };
+const AboutPage = () => <About />;
+
+AboutPage.getInitialProps = async ({ reduxStore }) => {
+  if (!reduxStore.getState().docs.isLoaded) {
+    await reduxStore.dispatch(fetchDocs());
   }
 
-  static propTypes = {
-    isDocs: PropTypes.bool.isRequired,
-    fetchDocsAction: PropTypes.func.isRequired,
+  return {
+    namespacesRequired: ['about'],
   };
-
-  componentDidMount() {
-    const { isDocs, fetchDocsAction } = this.props;
-
-    if (!isDocs) {
-      fetchDocsAction();
-    }
-  }
-
-  render() {
-    return <About />;
-  }
-}
-
-const mapState = state => ({
-  isDocs: state.docs.isLoaded,
-});
-
-const mapDispatch = {
-  fetchDocsAction: fetchDocs,
 };
 
-export default connect(mapState, mapDispatch)(AboutPage);
+export default AboutPage;

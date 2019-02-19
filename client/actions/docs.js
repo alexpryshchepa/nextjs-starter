@@ -1,36 +1,32 @@
+import 'isomorphic-fetch';
 import { GET_README_SUCCESS, GET_README_ERROR } from 'client/constants';
 
 export default function fetchDocs() {
-  return dispatch => new Promise(((resolve, reject) => {
-    fetch('https://api.github.com/repos/alexpryshchepa/nextjs-starter/readme', {
+  return async (dispatch) => {
+    await fetch('https://api.github.com/repos/alexpryshchepa/nextjs-starter/readme', {
       headers: {
         Accept: 'application/vnd.github.v3.html',
+        'User-Agent': 'alexpryshchepa',
       },
     })
-      .then((response) => {
+      .then(async (response) => {
         if (response.ok) {
-          response.text().then((text) => {
+          await response.text().then((text) => {
             dispatch({
               type: GET_README_SUCCESS,
               payload: text,
             });
-
-            resolve();
           });
         } else {
           dispatch({
             type: GET_README_ERROR,
           });
-
-          reject();
         }
       })
       .catch(() => {
         dispatch({
           type: GET_README_ERROR,
         });
-
-        reject();
       });
-  }));
+  };
 }

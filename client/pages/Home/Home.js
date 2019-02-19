@@ -5,7 +5,7 @@ import {
 } from 'i18n';
 import s from './Home.scss';
 
-export const Home = ({ t }) => (
+export const Home = ({ t, currentLang }) => (
   <div className={s.root}>
     <img className={s.img} src="/static/img/nextjs.png" alt="Tech Stack" />
     <h1 className={s.title}>{t('title')}</h1>
@@ -21,7 +21,8 @@ export const Home = ({ t }) => (
           <li key={lang}>
             <button
               // Issue with current lang during SSR https://github.com/isaachinman/next-i18next/issues/187
-              className={i18n.language === lang ? s.langActive : s.lang}
+              // Current language should be accessible directly from i18n object
+              className={currentLang === lang ? s.langActive : s.lang}
               type="button"
               onClick={() => i18n.changeLanguage(lang)}
             >
@@ -40,6 +41,7 @@ Home.getInitialProps = async () => ({
 
 Home.propTypes = {
   t: PropTypes.func.isRequired,
+  currentLang: PropTypes.string.isRequired,
 };
 
 export default withNamespaces('common')(Home);
