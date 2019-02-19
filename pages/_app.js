@@ -13,7 +13,7 @@ Router.events.on('routeChangeStart', () => {
   NProgress.start();
 });
 
-Router.events.on('routeChangeComplete', () => {
+Router.events.on('beforeHistoryChange', () => {
   // Dirty fix to update styles on page changes
   // Should be fixed in future versions of next.js
   if (process.env.NODE_ENV !== 'production') {
@@ -21,7 +21,9 @@ Router.events.on('routeChangeComplete', () => {
     const timestamp = new Date().valueOf();
     links[0].href = `/_next/static/css/styles.chunk.css?v=${timestamp}`;
   }
+});
 
+Router.events.on('routeChangeComplete', () => {
   NProgress.done();
 });
 
