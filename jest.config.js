@@ -1,8 +1,8 @@
 module.exports = {
   setupFiles: ['<rootDir>/jest.setup.js'],
-  testPathIgnorePatterns: ['<rootDir>/_build/', '<rootDir>/node_modules/'],
-  testMatch: ['<rootDir>/**/*.jest.js'],
-  modulePaths: ['<rootDir>/', '<rootDir>/node_modules/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/cypress/', '<rootDir>/_build/'],
+  testMatch: ['<rootDir>/**/*.spec.js'],
+  modulePaths: ['<rootDir>/node_modules/', '<rootDir>/'],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
   },

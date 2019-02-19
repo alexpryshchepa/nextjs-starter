@@ -1,8 +1,5 @@
 ## Next.js starter
 
-* __yarn__
-* __yarn dev__
-* __yarn build__
-* __yarn start__
+This build includes
 
 Coming soon...

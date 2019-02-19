@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Loader.scss';
 
-const Loader = ({ size, color }) => (
+export const Loader = ({ size, color }) => (
   <div className={s.root}>
     <span
       className={s.spinner}

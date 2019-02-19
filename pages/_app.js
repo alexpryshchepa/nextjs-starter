@@ -7,14 +7,14 @@ import { compose } from 'redux';
 import { Provider } from 'react-redux';
 import withReduxStore from 'client/core/withReduxStore';
 import { appWithTranslation } from 'i18n';
-import Page from 'client/components/Page';
+import styles from 'client/styles/global.scss';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
 });
 
 Router.events.on('beforeHistoryChange', () => {
-  // Dirty fix to update styles on page changes
+  // Dirty fix to update styles on page changes in dev mode
   // Should be fixed in future versions of next.js
   if (process.env.NODE_ENV !== 'production') {
     const links = document.querySelectorAll('link[href*="/_next/static/css/styles.chunk.css"]');
@@ -33,10 +33,9 @@ class MyApp extends App {
 
     return (
       <Container>
+        <style global jsx>{styles}</style>
         <Provider store={reduxStore}>
-          <Page>
-            <Component {...pageProps} />
-          </Page>
+          <Component {...pageProps} />
         </Provider>
       </Container>
     );

@@ -1,5 +1,5 @@
-@import '~client/styles/variables';
-@import '~client/styles/mixins';
+@import './variables';
+@import './mixins';
 
 :global {
   @import '~reset-css';
