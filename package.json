@@ -28,7 +28,6 @@
     "@zeit/next-sass": "^1.0.1",
     "express": "^4.16.4",
     "github-markdown-css": "^3.0.1",
-    "lodash": "^4.17.11",
     "next": "^7.0.2",
     "next-i18next": "^0.32.0",
     "node-sass": "^4.11.0",
