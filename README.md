@@ -30,3 +30,4 @@ You need to install [yarn](https://yarnpkg.com/) (>=1.12.3) and [Node.js](https:
 #### Notes:
 1. [./pages/_app.js](./pages/_app.js) - have fix to update styles on page changes in dev mode. Related to [this](https://github.com/zeit/next-plugins/issues/282) issue on github.
 2. There is some issue with getting current language during server side rendering [https://github.com/isaachinman/next-i18next/issues/187](https://github.com/isaachinman/next-i18next/issues/187).
+3. [next-i18next](https://github.com/isaachinman/next-i18next/issues/187) has no major version and currently in active development. So be careful updating it to another versions.
